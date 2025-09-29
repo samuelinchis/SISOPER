@@ -1,0 +1,21 @@
+# Use the official GCC image, which includes g++ and build tools
+FROM japeto/so-tools:v64
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the C++ source file and an example input file into the container
+COPY scheduler.cpp .
+COPY input1.txt .
+COPY input2.txt .
+COPY input3.txt .
+COPY README.txt .
+
+# Compile the C++ code
+RUN g++ -std=c++17 -o scheduler scheduler.cpp
+
+# Set the entrypoint to run the compiled scheduler by default
+ENTRYPOINT ["./scheduler"]
+
+# Set the default command to use the example input file
+CMD ["input1.txt"]

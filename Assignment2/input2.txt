@@ -1,0 +1,6 @@
+# etiqueta; burst time (BT); arrival time (AT); Queue (Q); Priority (5 > 1)
+A;8;0;1;5
+B;4;2;1;4
+C;9;4;2;3
+D;5;5;2;2
+E;2;8;3;1
