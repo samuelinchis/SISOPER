@@ -1,0 +1,9 @@
+A P1 20
+A P2 30
+M
+L P1
+A P3 15
+M
+L P2
+L P3
+M
