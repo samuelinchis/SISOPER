@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip> // Para formatear la salida
+
+int main() {
+    std::cout << "--- Actividad No. 4: Asignación Dinámica de Memoria (new/delete) ---" << std::endl;
+
+    // Definir las dimensiones de la matriz dinámica
+    const int FILAS = 3;
+    const int COLUMNAS = 4;
+
+    // 1. Cree un programa que use la asignación dinámica de memoria con new
+    // 2. Cree una matriz de enteros dinámica de 2D. (Array de punteros a arrays de enteros)
+    int** matriz_dinamica = new int*[FILAS];
+
+    for (int i = 0; i < FILAS; ++i) {
+        matriz_dinamica[i] = new int[COLUMNAS];
+    }
+
+    // 3. Llenen la matriz con datos
+    int contador = 1;
+    for (int i = 0; i < FILAS; ++i) {
+        for (int j = 0; j < COLUMNAS; ++j) {
+            matriz_dinamica[i][j] = contador++;
+        }
+    }
+
+    // Presentar la matriz
+    std::cout << "\nMatriz Dinámica (" << FILAS << "x" << COLUMNAS << "):" << std::endl;
+    for (int i = 0; i < FILAS; ++i) {
+        for (int j = 0; j < COLUMNAS; ++j) {
+            // Usar std::setw(3) para una mejor presentación
+            std::cout << std::setw(3) << matriz_dinamica[i][j];
+        }
+        std::cout << std::endl;
+    }
+
+    // Presentar direcciones de memoria (opcional, para ilustrar el heap)
+    std::cout << "\nDirecciones de memoria de las filas (Heap):" << std::endl;
+    std::cout << "Dirección del array principal de punteros: " << matriz_dinamica << " (Stack/Heap dependiendo de dónde se declare)" << std::endl;
+    for (int i = 0; i < FILAS; ++i) {
+        std::cout << "Dirección de la Fila " << i << ": " << matriz_dinamica[i] << " (Heap)" << std::endl;
+    }
+
+
+    // 4. Libere la memoria con delete cuando haya terminado.
+    // Primero, liberar la memoria de cada fila (cada array interno)
+    for (int i = 0; i < FILAS; ++i) {
+        delete[] matriz_dinamica[i];
+    }
+
+    // Luego, liberar el array de punteros (el array de filas)
+    delete[] matriz_dinamica;
+    matriz_dinamica = nullptr; // Buenas prácticas: anular el puntero después de liberar
+
+    std::cout << "\nMemoria dinámica liberada exitosamente con delete[]." << std::endl;
+
+    return 0;
+}
