@@ -1,0 +1,26 @@
+#include <iostream>
+
+int main() {
+    // 1. Declare y asigne una variable entera (int)
+    int numero = 42;
+
+    std::cout << "--- Actividad No. 1: Punteros y Modificación Indirecta ---" << std::endl;
+    std::cout << "Valor inicial de 'numero': " << numero << std::endl;
+
+    // 2. Presente en pantalla la dirección de memoria de esa variable.
+    std::cout << "Dirección de memoria de 'numero': " << &numero << std::endl;
+
+    // Declarar un puntero a la variable
+    int* ptr_numero = &numero;
+
+    // 3. Modifique el valor de la variable indirectamente utilizando punteros
+    // Utilizamos el operador de desreferencia (*) para acceder al valor
+    // y modificarlo a través del puntero.
+    *ptr_numero = 100;
+
+    // 4. Presente nuevamente el valor de la variable y la dirección de memoria
+    std::cout << "\nValor de 'numero' después de la modificación con puntero: " << numero << std::endl;
+    std::cout << "Dirección de memoria de 'numero' (debe ser la misma): " << &numero << std::endl;
+
+    return 0;
+}
