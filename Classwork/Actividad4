@@ -1,0 +1,38 @@
+#include <iostream>
+
+int main() {
+    // 1. Cree un programa en C++, declare un array de números enteros (int)
+    int array_numeros[] = {10, 20, 30, 40, 50};
+    int tamano = sizeof(array_numeros) / sizeof(array_numeros[0]);
+
+    std::cout << "--- Actividad No. 3: Punteros y Arrays ---" << std::endl;
+    std::cout << "Array inicial: [10, 20, 30, 40, 50]" << std::endl;
+
+    // 2. Utilice punteros para acceder a los elementos del array y modificar su contenido.
+    // El nombre del array (array_numeros) actúa como un puntero al primer elemento.
+    int* ptr_array = array_numeros;
+
+    // Acceder y modificar el segundo elemento (índice 1) usando aritmética de punteros
+    // (ptr_array + 1) es la dirección del segundo elemento.
+    // *(ptr_array + 1) es el valor del segundo elemento.
+    *(ptr_array + 1) = 200; // Modifica el 20 por 200
+
+    // Acceder y modificar el cuarto elemento (índice 3) usando notación de array en el puntero
+    ptr_array[3] = 400; // Modifica el 40 por 400
+
+    std::cout << "Array después de la modificación: ";
+    for (int i = 0; i < tamano; ++i) {
+        std::cout << array_numeros[i] << (i == tamano - 1 ? "" : ", ");
+    }
+    std::cout << std::endl;
+
+    // 3. Presente la dirección de memoria del array y del puntero
+    // La dirección del array es la dirección de su primer elemento.
+    std::cout << "\nDirección de memoria del array (primer elemento): " << array_numeros << std::endl;
+    std::cout << "Dirección de memoria del puntero 'ptr_array': " << ptr_array << std::endl;
+
+    // Opcional: Dirección de la variable *puntero* en sí misma
+    // std::cout << "Dirección de memoria del puntero 'ptr_array' variable: " << &ptr_array << std::endl;
+
+    return 0;
+}
