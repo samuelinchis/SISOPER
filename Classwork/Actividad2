@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+    int valor = 50;
+
+    std::cout << "--- Actividad No. 2: Punteros y Referencias ---" << std::endl;
+    std::cout << "Valor inicial de 'valor': " << valor << std::endl;
+
+    // 1. Declare un puntero a una variable.
+    int* ptr_valor = &valor;
+
+    // 2. Utilice el puntero para acceder y modificar el valor de la variable.
+    *ptr_valor = 75;
+    std::cout << "\nValor de 'valor' después de la modificación con puntero: " << valor << std::endl;
+
+    // 3. Cree una referencia a la variable y utilicela para modificar el valor
+    // La referencia es un alias de la variable original.
+    int& ref_valor = valor;
+    ref_valor = 99;
+    std::cout << "Valor de 'valor' después de la modificación con referencia: " << valor << std::endl;
+
+    // 4. Presente las direcciones de memoria del puntero y la referencia
+    // La dirección del puntero es la dirección de la variable que apunta.
+    // La dirección de la referencia es la dirección de la variable a la que es alias.
+    std::cout << "\nDirección de memoria de 'valor' (variable original): " << &valor << std::endl;
+    std::cout << "Dirección de memoria a la que apunta 'ptr_valor': " << ptr_valor << std::endl;
+    // Para una referencia, usamos el operador & para obtener su dirección (que es la de la variable original)
+    std::cout << "Dirección de memoria de 'ref_valor' (misma que 'valor'): " << &ref_valor << std::endl;
+
+    // Opcional: Dirección de la variable *puntero* en sí misma
+    // std::cout << "Dirección de memoria del puntero 'ptr_valor': " << &ptr_valor << std::endl;
+
+    return 0;
+}
